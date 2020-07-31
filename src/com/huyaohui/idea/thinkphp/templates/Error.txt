@@ -1,0 +1,10 @@
+<?php
+
+namespace app\$productName\error;
+
+use app\$productName\common\Error;
+
+class $classNameError extends Error
+{
+
+}

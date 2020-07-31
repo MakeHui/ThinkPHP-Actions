@@ -1,0 +1,34 @@
+<idea-plugin>
+  <id>com.huyaohui.idea.thinkphp</id>
+  <name>ThinkPHPActions</name>
+  <version>1.0</version>
+  <vendor email="makehuir@gmail.com" url="https://www.huyaohui.com">Leteng Team</vendor>
+
+  <description>
+    添加一些自动创建脚本的命令
+    1. 自动自动创建同名的 Controller, Model, Error, Exception, Validate
+    2. 自动生成 Facade
+  </description>
+
+  <!--  <change-notes></change-notes>-->
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.jetbrains.php</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="create_class" class="com.huyaohui.idea.thinkphp.actions.CreateClassAction" text="Create Class" description="Create ThinkPHP Class">
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>

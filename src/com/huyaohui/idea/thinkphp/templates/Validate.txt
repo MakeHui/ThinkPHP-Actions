@@ -1,0 +1,24 @@
+<?php
+
+namespace app\$productName\validate;
+
+use app\$productName\common\Validate;
+
+class $classNameValidate extends Validate
+{
+    protected $regex = [
+        'password' => '^.*(?=.{6,16})(?=.*\d)(?=.*[A-Za-z]{2,}).*$'
+    ];
+
+    protected $rule = [
+
+    ];
+
+    protected $message = [
+        'password.regex' => 'password 最短6位，最长16位, 必须至少包含1个数字, 必须至少包含2个字母',
+    ];
+
+    protected $scene = [
+
+    ];
+}

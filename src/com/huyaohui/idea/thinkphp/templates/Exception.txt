@@ -1,0 +1,10 @@
+<?php
+
+namespace app\$productName\exception;
+
+use app\common\exception\ResponseException;
+
+class $classNameException extends ResponseException
+{
+
+}
