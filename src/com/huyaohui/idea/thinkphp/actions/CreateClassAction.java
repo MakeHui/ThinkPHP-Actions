@@ -23,13 +23,12 @@ public class CreateClassAction extends AnAction {
      * 创建类型枚举
      */
     private enum  CodeType {
-        Controller, Service, Error, Exception, Validate
+        Controller, Error, Exception, Validate
     }
 
     public CreateClassAction() {
-        mFolders = Set.of(CodeType.Controller.toString().toLowerCase(), CodeType.Service.toString().toLowerCase(),
-                CodeType.Error.toString().toLowerCase(), CodeType.Exception.toString().toLowerCase(),
-                CodeType.Validate.toString().toLowerCase()
+        mFolders = Set.of(CodeType.Controller.toString().toLowerCase(), CodeType.Error.toString().toLowerCase(),
+                CodeType.Exception.toString().toLowerCase(), CodeType.Validate.toString().toLowerCase()
         );
     }
 
@@ -72,7 +71,6 @@ public class CreateClassAction extends AnAction {
         }
 
         createClassFile(CodeType.Controller);
-        createClassFile(CodeType.Service);
         createClassFile(CodeType.Error);
         createClassFile(CodeType.Exception);
         createClassFile(CodeType.Validate);
@@ -100,12 +98,12 @@ public class CreateClassAction extends AnAction {
         try {
             File floder = new File(classPath);
             if (!floder.exists()){
-                floder.mkdirs();
+                boolean b = floder.mkdirs();
             }
 
             File file = new File(classPath + "/" + className);
             if (!file.exists()) {
-                file.createNewFile();
+                boolean b = file.createNewFile();
             }
 
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
@@ -191,17 +189,14 @@ public class CreateClassAction extends AnAction {
      */
     private byte[] readStream(InputStream inputStream) throws IOException {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte[] buffer = new byte[1024];
-        int len;
-        try {
-            while ((len = inputStream.read(buffer)) != -1){
+        try (inputStream; outputStream) {
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = inputStream.read(buffer)) != -1) {
                 outputStream.write(buffer, 0, len);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            outputStream.close();
-            inputStream.close();
         }
 
         return outputStream.toByteArray();

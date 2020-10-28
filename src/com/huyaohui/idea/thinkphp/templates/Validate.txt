@@ -15,7 +15,7 @@ class $classNameValidate extends Validate
     ];
 
     protected $message = [
-        'password.regex' => 'password 最短6位，最长16位, 必须至少包含1个数字, 必须至少包含2个字母',
+        'password.regex' => 'password invalid',
     ];
 
     protected $scene = [
