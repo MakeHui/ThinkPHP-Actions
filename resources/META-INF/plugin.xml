@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.huyaohui.idea.thinkphp</id>
   <name>ThinkPHPActions</name>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <vendor email="makehuir@gmail.com" url="https://www.huyaohui.com">Leteng Team</vendor>
 
   <description>

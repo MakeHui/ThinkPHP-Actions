@@ -21,7 +21,7 @@ public class CreateClassForm extends JDialog {
         setTitle("Create Class");
         setContentPane(contentPane);
         setModal(true);
-        setSize(new Dimension(348, 120));
+        setSize(new Dimension(348, 136));
         setLocationRelativeTo(null);
         setResizable(false);
         getRootPane().setDefaultButton(okButton);

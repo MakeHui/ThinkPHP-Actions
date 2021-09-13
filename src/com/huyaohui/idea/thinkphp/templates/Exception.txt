@@ -2,9 +2,9 @@
 
 namespace app\$productName\exception;
 
-use app\common\exception\ResponseException;
+use app\api\common\Exception;
 
-class $classNameException extends ResponseException
+class $classNameException extends Exception
 {
 
 }

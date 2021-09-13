@@ -6,5 +6,63 @@ use app\$productName\common\Error;
 
 class $classNameError extends Error
 {
+    const ERR_1 = $Index001;
+    const MSG_1 = '';
 
+    const ERR_2 = $Index002;
+    const MSG_2 = '';
+
+    const ERR_3 = $Index003;
+    const MSG_3 = '';
+
+    const ERR_4 = $Index004;
+    const MSG_4 = '';
+
+    const ERR_5 = $Index005;
+    const MSG_5 = '';
+
+    const ERR_6 = $Index006;
+    const MSG_6 = '';
+
+    const ERR_7 = $Index007;
+    const MSG_7 = '';
+
+    const ERR_8 = $Index008;
+    const MSG_8 = '';
+
+    const ERR_9 = $Index009;
+    const MSG_9 = '';
+
+    const ERR_10 = $Index010;
+    const MSG_10 = '';
+
+    const ERR_11 = $Index011;
+    const MSG_11 = '';
+
+    const ERR_12 = $Index012;
+    const MSG_12 = '';
+
+    const ERR_13 = $Index013;
+    const MSG_13 = '';
+
+    const ERR_14 = $Index014;
+    const MSG_14 = '';
+
+    const ERR_15 = $Index015;
+    const MSG_15 = '';
+
+    const ERR_16 = $Index016;
+    const MSG_16 = '';
+
+    const ERR_17 = $Index017;
+    const MSG_17 = '';
+
+    const ERR_18 = $Index018;
+    const MSG_18 = '';
+
+    const ERR_19 = $Index019;
+    const MSG_19 = '';
+
+    const ERR_20 = $Index020;
+    const MSG_20 = '';
 }

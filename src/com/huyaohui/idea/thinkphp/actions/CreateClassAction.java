@@ -9,6 +9,7 @@ import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -84,7 +85,8 @@ public class CreateClassAction extends AnAction {
     private void createClassFile(CodeType codeType) {
         String fileName = codeType + ".txt";
         String content = readTemplateFile(fileName);
-        content = dealTemplateContent(content);
+        content = dealTemplateContent(content, codeType);
+
         writeToFile(content, mSelectedFile.getPath() + "/" + codeType.toString().toLowerCase() + "/", mClassName + codeType + ".php");
     }
 
@@ -155,15 +157,19 @@ public class CreateClassAction extends AnAction {
         return splitList[splitList.length - 1];
     }
 
-
     /**
      * 替换模板中字符
      * @param content
      * @return
      */
-    private String dealTemplateContent(String content) {
+    private String dealTemplateContent(String content, CodeType codeType) {
         content = content.replace("$className", mClassName);
         content = content.replace("$productName", mProductName);
+        if (codeType == CodeType.Error) {
+            int fileCount = getFileCount(mSelectedFile.getPath() + "/" + codeType.toString().toLowerCase());
+            String errPrefix = String.valueOf(200 + fileCount);
+            content = content.replace("$Index", errPrefix);
+        }
         return content;
     }
 
@@ -176,6 +182,7 @@ public class CreateClassAction extends AnAction {
         in = this.getClass().getResourceAsStream("/com/huyaohui/idea/thinkphp/templates/" + fileName);
         String content = "";
         try {
+            assert in != null;
             content = new String(readStream(in));
         } catch (IOException e) {
             e.printStackTrace();
@@ -202,5 +209,16 @@ public class CreateClassAction extends AnAction {
         return outputStream.toByteArray();
     }
 
+    private int getFileCount(String path) {
+        int fileCount = 0;
+        File d = new File(path);
+        File[] list = d.listFiles();
+        for(int i = 0; i < Objects.requireNonNull(list).length; i++){
+            if(list[i].isFile()){
+                fileCount++;
+            }
+        }
+        return fileCount;
+    }
 
 }
