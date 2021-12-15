@@ -9,6 +9,8 @@ import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 import java.util.Set;
 
@@ -165,12 +167,17 @@ public class CreateClassAction extends AnAction {
     private String dealTemplateContent(String content, CodeType codeType) {
         content = content.replace("$className", mClassName);
         content = content.replace("$productName", mProductName);
+        content = content.replace("$createTime", createTime());
         if (codeType == CodeType.Error) {
             int fileCount = getFileCount(mSelectedFile.getPath() + "/" + codeType.toString().toLowerCase());
             String errPrefix = String.valueOf(200 + fileCount);
             content = content.replace("$Index", errPrefix);
         }
         return content;
+    }
+
+    private String createTime() {
+        return new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
     }
 
     /**

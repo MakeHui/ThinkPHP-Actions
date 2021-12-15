@@ -1,5 +1,13 @@
 <?php
 
+//
+//  $className.php
+//  九万里会议
+//
+//  Created by 胡耀辉 on $createTime.
+//  Copyright © 2021 江西久万智能科技有限公司. All rights reserved.
+//
+
 namespace app\$productName\error;
 
 use app\$productName\common\Error;
